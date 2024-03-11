@@ -37,7 +37,7 @@ The ESP32 Solar Tracker requires the following components:
 
 ## Connection Scheme
 
-![Arduino Connection Scheme](https://i.postimg.cc/SQ6hHyhy/esquema-solar-tracker.png)
+![Arduino Connection Scheme](https://i.postimg.cc/4dqPRHpd/3.png)
 
 This connection scheme illustrates the project setup using an Arduino to control the components. The connection details include the pins used on the Arduino and how they are connected to various project components such as sensors, actuators, and communication modules.
 
