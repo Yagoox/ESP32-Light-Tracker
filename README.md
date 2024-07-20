@@ -6,17 +6,20 @@
 </head>
 <body>
 
-<h1>ESP32 Solar Tracker</h1>
+<h1>ESP32 Light Tracker</h1>
 
 <h2>Description</h2>
-<p>The ESP32 Solar Tracker is a cutting-edge system designed to optimize solar panel positioning for maximum sunlight exposure. By utilizing an ESP32 microcontroller, this project controls the movement of two servo motors, adjusting the solar panel's orientation based on real-time sunlight tracking, ensuring efficient solar energy harvesting.</p>
+<p>The ESP32 Light Tracker is a project to control servos that track light using Light Dependent Resistors (LDRs). This project allows three modes of operation: automatic light tracking, manual control via Bluetooth, and a panic mode that sets the servos to a predefined position. It also includes advanced features like automatic LDR calibration, diagnostic mode, and logging to an SD card.</p>
 
 <h2>Features</h2>
 <ul>
-    <li><strong>Real-time Solar Tracking:</strong> The system continuously monitors sunlight intensity using Light Dependent Resistors (LDRs) and adjusts the position of the solar panel to maximize sunlight exposure.</li>
-    <li><strong>Efficiency Optimization:</strong> Dynamically tracks the sun's position, significantly increasing the efficiency of solar energy harvesting.</li>
-    <li><strong>Bluetooth Control:</strong> Integrates Bluetooth functionality, allowing users to remotely control and monitor the solar tracking system via a smartphone or other Bluetooth-enabled devices.</li>
-    <li><strong>Emergency Mode (Panic):</strong> In case of emergencies or adverse conditions, the system can activate a panic mode, moving the solar panel to a predefined safe position.</li>
+    <li><strong>Real-time Light Tracking:</strong> The system continuously monitors light intensity using LDRs and adjusts the position of the servos to maximize light exposure.</li>
+    <li><strong>Efficiency Optimization:</strong> Dynamically tracks the light's position, significantly increasing efficiency.</li>
+    <li><strong>Bluetooth Control:</strong> Integrates Bluetooth functionality, allowing users to remotely control and monitor the system via a smartphone or other Bluetooth-enabled devices.</li>
+    <li><strong>Emergency Mode (Panic):</strong> In case of emergencies, the system can activate a panic mode, moving the servos to a predefined safe position.</li>
+    <li><strong>Automatic LDR Calibration:</strong> Calibrates the LDRs at startup to ensure accurate light tracking.</li>
+    <li><strong>Diagnostic Mode:</strong> Continuously prints the values of the LDRs and the angles of the servos for easy troubleshooting.</li>
+    <li><strong>Logging to SD Card:</strong> Logs light tracking data to an SD card for analysis.</li>
 </ul>
 
 <h2>Requirements</h2>
@@ -42,6 +45,7 @@
     <li>2x Servo Motors</li>
     <li>1x Bluetooth Module (integrated into ESP32)</li>
     <li>Resistors</li>
+    <li>SD Card and SD Card Reader Module</li>
 </ul>
 
 <h3>Connection Scheme</h3>
@@ -68,11 +72,18 @@
 </ol>
 
 <h2>Project Structure</h2>
-<ul>
-    <li>/src: Contains the main source code for the project.</li>
-    <li>/docs: Includes detailed documentation and additional resources.</li>
-    <li>/examples: Provides example codes and usage scenarios.</li>
-    <li>/assets: Stores images, diagrams, and other media files related to the project.</li>
+<ul class="project-structure">
+    <li class="folder">src/</li>
+    <li class="file">config.h: Definições de pinos e configurações.</li>
+    <li class="file">main.ino: Arquivo principal com a lógica do projeto.</li>
+    <li class="file">servos.h: Funções para controle dos servos.</li>
+    <li class="file">servos.cpp: Implementação das funções de controle dos servos.</li>
+    <li class="file">bluetooth.h: Funções para controle via Bluetooth.</li>
+    <li class="file">bluetooth.cpp: Implementação das funções de controle via Bluetooth.</li>
+    <li class="file">ldr.h: Funções para leitura dos LDRs.</li>
+    <li class="file">ldr.cpp: Implementação das funções de leitura dos LDRs.</li>
+    <li class="file">utils.h: Funções utilitárias.</li>
+    <li class="file">utils.cpp: Implementação das funções utilitárias.</li>
 </ul>
 
 <h2>Advanced Features</h2>
@@ -83,7 +94,7 @@
 </ul>
 
 <h2>Contribution</h2>
-<p>We welcome contributions to the ESP32 Solar Tracker project. Please follow these guidelines:</p>
+<p>We welcome contributions to the ESP32 Light Tracker project. Please follow these guidelines:</p>
 
 <h3>Fork the Repository</h3>
 <p>Create a personal fork of the repository on GitHub.</p>
@@ -110,9 +121,10 @@
 
 <h2>Version History</h2>
 <ul>
-    <li><strong>v1.0:</strong> Initial release with basic solar tracking functionality.</li>
+    <li><strong>v1.0:</strong> Initial release with basic light tracking functionality.</li>
     <li><strong>v1.1:</strong> Added Bluetooth control and emergency mode.</li>
     <li><strong>v1.2:</strong> Improved tracking algorithm and performance optimizations.</li>
+    <li><strong>v1.3:</strong> Added advanced features like automatic LDR calibration, diagnostic mode, and logging to SD card.</li>
 </ul>
 
 <h2>License</h2>
