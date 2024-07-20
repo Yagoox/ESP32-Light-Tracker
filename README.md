@@ -9,7 +9,7 @@
 <h1>ESP32 Light Tracker</h1>
 
 <h2>Description</h2>
-<p>The ESP32 Light Tracker is a project to control servos that track light using Light Dependent Resistors (LDRs). This project allows three modes of operation: automatic light tracking, manual control via Bluetooth, and a panic mode that sets the servos to a predefined position. It also includes advanced features like automatic LDR calibration, diagnostic mode, and logging to an SD card.</p>
+<p>The ESP32 Light Tracker is a project to control servos that track light using Light Dependent Resistors (LDRs). This project allows three modes of operation: automatic light tracking, manual control via Bluetooth, and a panic mode that sets the servos to a predefined position. It also includes advanced features like automatic LDR calibration and diagnostic mode.</p>
 
 <h2>Features</h2>
 <ul>
@@ -19,7 +19,6 @@
     <li><strong>Emergency Mode (Panic):</strong> In case of emergencies, the system can activate a panic mode, moving the servos to a predefined safe position.</li>
     <li><strong>Automatic LDR Calibration:</strong> Calibrates the LDRs at startup to ensure accurate light tracking.</li>
     <li><strong>Diagnostic Mode:</strong> Continuously prints the values of the LDRs and the angles of the servos for easy troubleshooting.</li>
-    <li><strong>Logging to SD Card:</strong> Logs light tracking data to an SD card for analysis.</li>
 </ul>
 
 <h2>Requirements</h2>
@@ -45,7 +44,6 @@
     <li>2x Servo Motors</li>
     <li>1x Bluetooth Module (integrated into ESP32)</li>
     <li>Resistors</li>
-    <li>SD Card and SD Card Reader Module</li>
 </ul>
 
 <h3>Connection Scheme</h3>
@@ -124,7 +122,7 @@
     <li><strong>v1.0:</strong> Initial release with basic light tracking functionality.</li>
     <li><strong>v1.1:</strong> Added Bluetooth control and emergency mode.</li>
     <li><strong>v1.2:</strong> Improved tracking algorithm and performance optimizations.</li>
-    <li><strong>v1.3:</strong> Added advanced features like automatic LDR calibration, diagnostic mode, and logging to SD card.</li>
+    <li><strong>v1.3:</strong> Added advanced features like automatic LDR calibration and diagnostic mode.</li>
 </ul>
 
 <h2>License</h2>
