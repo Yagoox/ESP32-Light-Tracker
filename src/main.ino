@@ -1,7 +1,5 @@
 #include <ESP32Servo.h>
 #include <BluetoothSerial.h>
-#include <SD.h>
-#include <SPI.h>
 #include "config.h"
 #include "servos.h"
 #include "bluetooth.h"
@@ -39,13 +37,6 @@ void setup() {
     // Ativação do monitor serial e Bluetooth
     Serial.begin(115200);
     SerialBT.begin("ESP32-ServoBot");
-
-    // Inicialização do cartão SD
-    if (!SD.begin(SD_CHIP_SELECT_PIN)) {
-        Serial.println("Falha na inicialização do cartão SD!");
-        return;
-    }
-    Serial.println("Cartão SD inicializado.");
 
     // Inicialização com a função rastrearLuzInicial
     rastrearLuzInicial();
@@ -106,9 +97,6 @@ void loop() {
 
     // Impressão dos valores no monitor serial
     imprimirValores(ldrCimaDireita, ldrCimaEsquerda, ldrBaixoDireita, ldrBaixoEsquerda);
-
-    // Logging em cartão SD
-    logData(ldrCimaDireita, ldrCimaEsquerda, ldrBaixoDireita, ldrBaixoEsquerda, anguloHorizontalAtual, anguloVerticalAtual);
 
     delay(100);
 }

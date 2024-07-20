@@ -14,8 +14,6 @@
 #define SERVO_HORIZONTAL_PIN 19
 #define SERVO_VERTICAL_PIN 18
 
-#define SD_CHIP_SELECT_PIN 5
-
 // Configurações dos LDRs e Servos
 #define REFERENCIA_LDR 500
 #define INCREMENTO_ANGULO 2
