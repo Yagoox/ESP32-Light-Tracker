@@ -1,50 +1,130 @@
-# ESP32 Solar Tracker
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
 
-## Description
+<h1>ESP32 Solar Tracker</h1>
 
-The ESP32 Solar Tracker is a system designed to optimize solar panel positioning for maximum sunlight exposure. This project utilizes an ESP32 microcontroller to control the movement of two servo motors, adjusting the solar panel's orientation based on real-time sunlight tracking.
+<h2>Description</h2>
+<p>The ESP32 Solar Tracker is a cutting-edge system designed to optimize solar panel positioning for maximum sunlight exposure. By utilizing an ESP32 microcontroller, this project controls the movement of two servo motors, adjusting the solar panel's orientation based on real-time sunlight tracking, ensuring efficient solar energy harvesting.</p>
 
-## Features
+<h2>Features</h2>
+<ul>
+    <li><strong>Real-time Solar Tracking:</strong> The system continuously monitors sunlight intensity using Light Dependent Resistors (LDRs) and adjusts the position of the solar panel to maximize sunlight exposure.</li>
+    <li><strong>Efficiency Optimization:</strong> Dynamically tracks the sun's position, significantly increasing the efficiency of solar energy harvesting.</li>
+    <li><strong>Bluetooth Control:</strong> Integrates Bluetooth functionality, allowing users to remotely control and monitor the solar tracking system via a smartphone or other Bluetooth-enabled devices.</li>
+    <li><strong>Emergency Mode (Panic):</strong> In case of emergencies or adverse conditions, the system can activate a panic mode, moving the solar panel to a predefined safe position.</li>
+</ul>
 
-- **Real-time Solar Tracking:** The system continuously monitors sunlight intensity using Light Dependent Resistors (LDRs) and adjusts the position of the solar panel to maximize sunlight exposure.
-- **Efficiency Optimization:** By dynamically tracking the sun's position, the system maximizes solar energy harvesting, resulting in increased efficiency.
-- **Bluetooth Control:** The ESP32 integrates Bluetooth functionality, allowing users to remotely control and monitor the solar tracking system via a smartphone or other Bluetooth-enabled device.
-- **Emergency Mode (Panic):** In case of emergencies or adverse conditions, the system can be activated into a panic mode, where the solar panel moves to a predefined safe position.
+<h2>Requirements</h2>
 
-## Requirements
+<h3>Hardware Requirements</h3>
+<ul>
+    <li><strong>Minimum MCU:</strong> 256-512kB Flash, 16-24kB SRAM, 16MHz</li>
+    <li><strong>Recommended MCU:</strong> 512kB-1MB+ Flash, 24-32kB+ SRAM, 32-48MHz+</li>
+</ul>
 
-The ESP32 Solar Tracker has the following hardware requirements:
+<h3>Compatible Microcontrollers</h3>
+<ul>
+    <li><strong>Definitely Works:</strong> GIGA, Portenta (any), ESP32/8266, Teensy 3.5+, STM32 (>256kB), Pico/RP2040 (any)</li>
+    <li><strong>May Work (with external data/minimal UI):</strong> Uno R4, Nano 33 (any), MKR (any), Due/Zero, STM32 (256kB)</li>
+    <li><strong>May Work (with heavy adjustments/limited build):</strong> ATMega2560, Genuino 101, Teensy 3.2 (/3.1), STM32F0</li>
+    <li><strong>Definitely Won't Work:</strong> Uno (classic up to R3), Nano (classic and Every), Leonardo/Duemilanove, Micro, Pro, Esplora, Teensy 2/LC, STM8 (|32<256kB), ATtiny (any)</li>
+</ul>
 
-- **Minimum MCU:** 256-512kB Flash, 16-24kB SRAM, 16MHz
-- **Recommended:** 512kB-1MB+ Flash, 24-32kB+ SRAM, 32-48MHz+
+<h3>Components</h3>
+<ul>
+    <li>ESP32</li>
+    <li>4x Light Dependent Resistors (LDRs)</li>
+    <li>2x Servo Motors</li>
+    <li>1x Bluetooth Module (integrated into ESP32)</li>
+    <li>Resistors</li>
+</ul>
 
-The system is compatible with various microcontrollers, including but not limited to:
+<h3>Connection Scheme</h3>
+<p><img src="https://drive.google.com/uc?export=view&id=1QWrT_bZSrWUGSNd7l1CWe_IeeuWR4Lq9" alt="Connection Scheme"></p>
+<p><img src="https://drive.google.com/uc?export=view&id=1lQeS_DON3KihkdE4mqvhljHWYpZLRqEF" alt="Connection Scheme"></p>
 
-- **Definitely Works:** GIGA, Portenta (any), ESP32/8266, Teensy 3.5+, STM32 (>256kB), Pico/RP2040 (any)
-- **May Work (with external data/minimal UI):** Uno R4, Nano 33 (any), MKR (any), Due/Zero, STM32 (256kB)
-- **May Work (with heavy adjustments/limited build):** ATMega2560, Genuino 101, Teensy 3.2 (/3.1), STM32F0
-- **Definitely Won't Work:** Uno (classic up to R3), Nano (classic and Every), Leonardo/Duemilanove, Micro, Pro, Esplora, Teensy 2/LC, STM8 (|32<256kB), ATtiny (any)
+<h2>Installation and Setup</h2>
 
-## Components
+<h3>Clone the Repository</h3>
+<pre><code>git clone https://github.com/Yagoox/ESP32-Light-Tracker.git</code></pre>
 
-The ESP32 Solar Tracker requires the following components:
+<h3>Navigate to the Project Directory</h3>
+<pre><code>cd ESP32-Light-Tracker</code></pre>
 
-- ESP32
-- 4x Light Dependent Resistors (LDRs)
-- 2x Servo Motors
-- 1x Bluetooth Module (integrated into ESP32)
-- Resistors
+<h3>Install Dependencies</h3>
+<p>Ensure you have the necessary libraries installed in your Arduino IDE or other development environments.</p>
 
-## Connection Scheme
+<h2>Usage</h2>
+<ol>
+    <li><strong>Upload the Code:</strong> Use the Arduino IDE or another compatible environment to upload the provided code to the ESP32.</li>
+    <li><strong>Connect the Hardware:</strong> Follow the connection scheme to connect all components correctly.</li>
+    <li><strong>Power On:</strong> Power on the ESP32 and observe the servo motors adjusting the solar panel's orientation based on real-time sunlight tracking.</li>
+    <li><strong>Bluetooth Control:</strong> Use a Bluetooth-enabled device to connect to the ESP32 and remotely control or monitor the system.</li>
+</ol>
 
-![Arduino Connection Scheme](https://i.postimg.cc/4dqPRHpd/3.png)
+<h2>Project Structure</h2>
+<ul>
+    <li>/src: Contains the main source code for the project.</li>
+    <li>/docs: Includes detailed documentation and additional resources.</li>
+    <li>/examples: Provides example codes and usage scenarios.</li>
+    <li>/assets: Stores images, diagrams, and other media files related to the project.</li>
+</ul>
 
-This connection scheme illustrates the project setup using an Arduino to control the components. The connection details include the pins used on the Arduino and how they are connected to various project components such as sensors, actuators, and communication modules.
+<h2>Advanced Features</h2>
+<ul>
+    <li><strong>Customizable Tracking Algorithm:</strong> Modify the tracking algorithm to suit different environmental conditions or preferences.</li>
+    <li><strong>Data Logging:</strong> Implement data logging to record sunlight intensity and panel positions for analysis.</li>
+    <li><strong>Remote Updates:</strong> Enable remote firmware updates via Bluetooth or Wi-Fi.</li>
+</ul>
 
-Detailed description of the connection scheme, explaining each component and its function.
+<h2>Contribution</h2>
+<p>We welcome contributions to the ESP32 Solar Tracker project. Please follow these guidelines:</p>
 
-## Installation and Setup
+<h3>Fork the Repository</h3>
+<p>Create a personal fork of the repository on GitHub.</p>
 
-1. **Clone the Repository:** 
-   ```bash
-   git clone https://github.com/Yagoox/ESP32-Light-Tracker
+<h3>Create a Feature Branch</h3>
+<pre><code>git checkout -b feature/YourFeatureName</code></pre>
+
+<h3>Commit Your Changes</h3>
+<pre><code>git commit -m "Add your message here"</code></pre>
+
+<h3>Push to the Branch</h3>
+<pre><code>git push origin feature/YourFeatureName</code></pre>
+
+<h3>Open a Pull Request</h3>
+<p>Provide a detailed description of your changes and submit a pull request for review.</p>
+
+<h2>Testing</h2>
+<p>To run tests, follow these steps:</p>
+<ol>
+    <li><strong>Setup Test Environment:</strong> Ensure all hardware components are connected as per the connection scheme.</li>
+    <li><strong>Execute Test Scripts:</strong> Run the provided test scripts to verify the functionality of the system.</li>
+    <li><strong>Review Test Results:</strong> Analyze the test outputs and logs to ensure the system is working as expected.</li>
+</ol>
+
+<h2>Version History</h2>
+<ul>
+    <li><strong>v1.0:</strong> Initial release with basic solar tracking functionality.</li>
+    <li><strong>v1.1:</strong> Added Bluetooth control and emergency mode.</li>
+    <li><strong>v1.2:</strong> Improved tracking algorithm and performance optimizations.</li>
+</ul>
+
+<h2>License</h2>
+<p>This project is licensed under the MIT License - see the LICENSE file for details.</p>
+
+<h2>References and Additional Resources</h2>
+<ul>
+    <li><a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/">ESP32 Documentation</a></li>
+    <li><a href="https://www.arduino.cc/en/Main/Software">Arduino IDE</a></li>
+    <li><a href="https://randomnerdtutorials.com/esp32-servo-motor-web-server/">Servo Motor Control with ESP32</a></li>
+    <li><a href="https://randomnerdtutorials.com/esp32-bluetooth-classic-arduino-ide/">Bluetooth Communication with ESP32</a></li>
+</ul>
+
+</body>
+</html>
