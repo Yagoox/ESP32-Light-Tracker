@@ -1,6 +1,12 @@
 #include <ESP32Servo.h>
 #include <BluetoothSerial.h>
+#include <SD.h>
+#include <SPI.h>
 #include "config.h"
+#include "servos.h"
+#include "bluetooth.h"
+#include "ldr.h"
+#include "utils.h"
 
 // Definição de objetos para os servos e Bluetooth
 Servo servoHorizontal;
@@ -33,6 +39,13 @@ void setup() {
     // Ativação do monitor serial e Bluetooth
     Serial.begin(115200);
     SerialBT.begin("ESP32-ServoBot");
+
+    // Inicialização do cartão SD
+    if (!SD.begin(SD_CHIP_SELECT_PIN)) {
+        Serial.println("Falha na inicialização do cartão SD!");
+        return;
+    }
+    Serial.println("Cartão SD inicializado.");
 
     // Inicialização com a função rastrearLuzInicial
     rastrearLuzInicial();
@@ -94,97 +107,8 @@ void loop() {
     // Impressão dos valores no monitor serial
     imprimirValores(ldrCimaDireita, ldrCimaEsquerda, ldrBaixoDireita, ldrBaixoEsquerda);
 
+    // Logging em cartão SD
+    logData(ldrCimaDireita, ldrCimaEsquerda, ldrBaixoDireita, ldrBaixoEsquerda, anguloHorizontalAtual, anguloVerticalAtual);
+
     delay(100);
-}
-
-void rastrearLuzInicial() {
-    int maxLDRValue = 0;
-    int maxServoAngle = 0;
-
-    for (int angle = 10; angle <= 170; angle += 5) {
-        servoHorizontal.write(angle);
-        delay(200);
-        int ldrValue = analogRead(LDR_CIMA_DIREITA);
-
-        if (ldrValue > maxLDRValue) {
-            maxLDRValue = ldrValue;
-            maxServoAngle = angle;
-        }
-    }
-
-    servoHorizontal.write(maxServoAngle);
-    delay(500);
-
-    seguirLuz = true;
-}
-
-void moverServoHorizontal(int anguloDesejado) {
-    anguloDesejado = constrain(anguloDesejado, 0, 180);
-    while (anguloHorizontalAtual != anguloDesejado) {
-        anguloHorizontalAtual += (anguloDesejado < anguloHorizontalAtual) ? -1 : 1;
-        servoHorizontal.write(anguloHorizontalAtual);
-        delay(PAUSA_MOVIMENTO);
-    }
-}
-
-void moverServoVertical(int anguloDesejado) {
-    anguloDesejado = constrain(anguloDesejado, 0, 180);
-    while (anguloVerticalAtual != anguloDesejado) {
-        anguloVerticalAtual += (anguloDesejado < anguloVerticalAtual) ? -1 : 1;
-        servoVertical.write(anguloVerticalAtual);
-        delay(PAUSA_MOVIMENTO);
-    }
-}
-
-void processarComandoBluetooth(char command) {
-    switch (command) {
-        case '1':
-            moverServoVertical(anguloVerticalAtual - INCREMENTO_ANGULO);
-            break;
-        case '2':
-            moverServoVertical(anguloVerticalAtual + INCREMENTO_ANGULO);
-            break;
-        case '3':
-            moverServoHorizontal(anguloHorizontalAtual + INCREMENTO_ANGULO);
-            break;
-        case '4':
-            moverServoHorizontal(anguloHorizontalAtual - INCREMENTO_ANGULO);
-            break;
-    }
-}
-
-void rastrearLuz(int avgtop, int avgbot, int avgleft, int avgright) {
-    if (avgleft < REFERENCIA_LDR) {
-        moverServoHorizontal(anguloHorizontalAtual - INCREMENTO_ANGULO);
-    } else if (avgright < REFERENCIA_LDR) {
-        moverServoHorizontal(anguloHorizontalAtual + INCREMENTO_ANGULO);
-    }
-
-    if (avgtop < REFERENCIA_LDR) {
-        moverServoVertical(anguloVerticalAtual - INCREMENTO_ANGULO);
-    } else if (avgbot < REFERENCIA_LDR) {
-        moverServoVertical(anguloVerticalAtual + INCREMENTO_ANGULO);
-    }
-}
-
-void estadoPanico() {
-    servoHorizontal.write(94);
-    servoVertical.write(118);
-}
-
-void imprimirValores(int ldrCimaDireita, int ldrCimaEsquerda, int ldrBaixoDireita, int ldrBaixoEsquerda) {
-    Serial.print("LDR Cima Direita: ");
-    Serial.println(ldrCimaDireita);
-    Serial.print("LDR Cima Esquerda: ");
-    Serial.println(ldrCimaEsquerda);
-    Serial.print("LDR Baixo Direita: ");
-    Serial.println(ldrBaixoDireita);
-    Serial.print("LDR Baixo Esquerda: ");
-    Serial.println(ldrBaixoEsquerda);
-    Serial.print("Ângulo Horizontal: ");
-    Serial.println(anguloHorizontalAtual);
-    Serial.print("Ângulo Vertical: ");
-    Serial.println(anguloVerticalAtual);
-    Serial.print("Cont: ");
-    Serial.println(cont);
 }
