@@ -1,3 +1,4 @@
+#include <Arduino.h>
 #include "ldr.h"
 #include "config.h"
 

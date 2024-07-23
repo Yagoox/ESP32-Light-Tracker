@@ -1,4 +1,9 @@
+#include <Arduino.h>
 #include "utils.h"
+
+extern int anguloHorizontalAtual;
+extern int anguloVerticalAtual;
+extern int cont;
 
 void imprimirValores(int ldrCimaDireita, int ldrCimaEsquerda, int ldrBaixoDireita, int ldrBaixoEsquerda) {
     Serial.print("LDR Cima Direita: ");

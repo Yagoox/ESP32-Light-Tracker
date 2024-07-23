@@ -1,3 +1,4 @@
+#include <Arduino.h>
 #include <ESP32Servo.h>
 #include "config.h"
 #include "servos.h"
@@ -6,6 +7,7 @@ extern Servo servoHorizontal;
 extern Servo servoVertical;
 extern int anguloHorizontalAtual;
 extern int anguloVerticalAtual;
+extern bool seguirLuz;
 
 void moverServoHorizontal(int anguloDesejado) {
     anguloDesejado = constrain(anguloDesejado, 0, 180);

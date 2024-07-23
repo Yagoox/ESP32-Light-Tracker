@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "author": "your_name",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "esp32-devkit-v1", "id": "esp32", "top": 20, "left": 20 },
+    { "type": "servo", "id": "servo1", "top": 100, "left": 50 },
+    { "type": "servo", "id": "servo2", "top": 150, "left": 50 },
+    { "type": "ldr", "id": "ldr1", "top": 200, "left": 50 },
+    { "type": "ldr", "id": "ldr2", "top": 250, "left": 50 },
+    { "type": "ldr", "id": "ldr3", "top": 300, "left": 50 },
+    { "type": "ldr", "id": "ldr4", "top": 350, "left": 50 },
+    { "type": "pushbutton", "id": "button", "top": 400, "left": 50 }
+  ],
+  "connections": [
+    ["esp32:G19", "servo1:S", "green"],
+    ["esp32:G18", "servo2:S", "green"],
+    ["esp32:G14", "ldr1:S", "yellow"],
+    ["esp32:G27", "ldr2:S", "yellow"],
+    ["esp32:G26", "ldr3:S", "yellow"],
+    ["esp32:G25", "ldr4:S", "yellow"],
+    ["esp32:G33", "button:1", "blue"]
+  ]
+}

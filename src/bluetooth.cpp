@@ -1,8 +1,11 @@
 #include <BluetoothSerial.h>
 #include "bluetooth.h"
 #include "servos.h"
+#include "config.h"
 
 extern BluetoothSerial SerialBT;
+extern int anguloHorizontalAtual;
+extern int anguloVerticalAtual;
 
 void processarComandoBluetooth(char command) {
     switch (command) {
