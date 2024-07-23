@@ -85,17 +85,33 @@ to = "target:80"
 
 <h2>Project Structure</h2>
 <ul class="project-structure">
-<li class="folder">src/</li>
-<li class="file">config.h: Pin definitions and configurations.</li>
-<li class="file">main.cpp: Main file with project logic.</li>
-<li class="file">servos.h: Functions for servo control.</li>
-<li class="file">servos.cpp: Implementation of servo control functions.</li>
-<li class="file">bluetooth.h: Functions for Bluetooth control.</li>
-<li class="file">bluetooth.cpp: Implementation of Bluetooth control functions.</li>
-<li class="file">ldr.h: Functions for LDR reading.</li>
-<li class="file">ldr.cpp: Implementation of LDR reading functions.</li>
-<li class="file">utils.h: Utility functions.</li>
-<li class="file">utils.cpp: Implementation of utility functions.</li>
+    <li class="folder">include/</li>
+    <ul>
+        <li class="file">bluetooth.h: Functions for Bluetooth control.</li>
+        <li class="file">config.h: Pin definitions and configurations.</li>
+        <li class="file">ldr.h: Functions for LDR reading.</li>
+        <li class="file">servos.h: Functions for servo control.</li>
+        <li class="file">utils.h: Utility functions.</li>
+    </ul>
+    <li class="folder">src/</li>
+    <ul>
+        <li class="file">bluetooth.cpp: Implementation of Bluetooth control functions.</li>
+        <li class="file">ldr.cpp: Implementation of LDR reading functions.</li>
+        <li class="file">main.cpp: Main file with project logic.</li>
+        <li class="file">servos.cpp: Implementation of servo control functions.</li>
+        <li class="file">utils.cpp: Implementation of utility functions.</li>
+    </ul>
+    <li class="folder">lib/</li>
+    <ul>
+        <li class="file">README: Documentation for the libraries used.</li>
+    </ul>
+    <li class="folder">test/</li>
+    <ul>
+        <li class="file">README: Documentation for testing.</li>
+    </ul>
+    <li class="file">.gitignore: Git ignore file.</li>
+    <li class="file">platformio.ini: PlatformIO configuration file.</li>
+    <li class="file">wokwi.toml: Wokwi simulation configuration file.</li>
 </ul>
 
 <h2>Advanced Features</h2>
